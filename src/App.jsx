@@ -24,10 +24,12 @@ class App extends Component {
   addMood(e) {
     var buttonMood = e.target.id;
 
-    this.setState({
-      mood: buttonMood
-    });
-    this.updatePlaylistState();
+    this.setState(
+      {
+        mood: buttonMood
+      },
+      this.updatePlaylistState
+    );
 
     console.log(this.state.mood);
   }
