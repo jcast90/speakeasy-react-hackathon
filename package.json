@@ -36,9 +36,7 @@
     "spotify-uri": "^1.0.0",
     "spotify-web-api-node": "^2.5.0",
     "spotify-wrapper": "^2.0.2",
-    "webpack": "^1.13.2"
-  },
-  "devDependencies": {
+    "webpack": "^1.13.2",
     "axios-mock-adapter": "^1.6.1",
     "babel": "^6.3.26",
     "babel-loader": "^7.1.1",
