@@ -35,46 +35,50 @@ class App extends Component {
   }
 
   updateDrinkState() {
-    axios.get('http://localhost:3000/drinks').then(response => {
-      console.log(response.data);
+    axios
+      .get('https://serene-everglades-94130.herokuapp.com/drinks')
+      .then(response => {
+        console.log(response.data);
 
-      var randomDrink = {
-        name: response.data.Drink,
-        url: response.data.DrinkThumb,
-        ingredients: response.data.Ingredients,
-        instructions: response.data.Instructions,
-        measure: response.data.Measure
-      };
-      this.setState({
-        drink: randomDrink
+        var randomDrink = {
+          name: response.data.Drink,
+          url: response.data.DrinkThumb,
+          ingredients: response.data.Ingredients,
+          instructions: response.data.Instructions,
+          measure: response.data.Measure
+        };
+        this.setState({
+          drink: randomDrink
+        });
+        // console.log(randomDrink);
       });
-      // console.log(randomDrink);
-    });
   }
   updatePlaylistState() {
     const query = this.state.mood;
-    axios.get('http://localhost:3000/token').then(response => {
-      console.log(response);
+    axios
+      .get('https://serene-everglades-94130.herokuapp.com/token')
+      .then(response => {
+        console.log(response);
 
-      const spotify = new SpotifyWrapper({
-        token: response.data
-      });
-      spotify.search.playlists(query).then(data => {
-        var playlists = data.playlists.items.map(item => {
-          return {
-            spotify: item.external_urls.spotify,
-            name: item.name,
-            imageUrl: item.images[0].url,
-            imageWidth: item.images[0].width,
-            imageHeight: item.images[0].height
-          };
+        const spotify = new SpotifyWrapper({
+          token: response.data
         });
+        spotify.search.playlists(query).then(data => {
+          var playlists = data.playlists.items.map(item => {
+            return {
+              spotify: item.external_urls.spotify,
+              name: item.name,
+              imageUrl: item.images[0].url,
+              imageWidth: item.images[0].width,
+              imageHeight: item.images[0].height
+            };
+          });
 
-        this.setState({
-          playlists: playlists
+          this.setState({
+            playlists: playlists
+          });
         });
       });
-    });
   }
   componentWillMount() {
     // this.updatePlaylistState();
