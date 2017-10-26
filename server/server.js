@@ -1,7 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
 const axios = require('axios');
-const url = 'http://www.omdbapi.com?apikey=8730e0e';
 const app = express();
 const cache = {};
 const SpotifyWebApi = require('spotify-web-api-node');
