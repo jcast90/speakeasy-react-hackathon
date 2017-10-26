@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   updateDrinkState() {
-    axios.get('localhost:3000/drinks').then(response => {
+    axios.get('http://localhost:3000/drinks').then(response => {
       console.log(response.data);
 
       var randomDrink = {
@@ -53,7 +53,7 @@ class App extends Component {
   }
   updatePlaylistState() {
     const query = this.state.mood;
-    axios.get('localhost:3000/token').then(response => {
+    axios.get('http://localhost:3000/token').then(response => {
       console.log(response);
 
       const spotify = new SpotifyWrapper({
