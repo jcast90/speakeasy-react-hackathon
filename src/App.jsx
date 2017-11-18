@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import './App.css';
 import axios from 'axios';
 import { Add } from './components/Add';
 import { Results } from './components/Results';
@@ -30,16 +29,12 @@ class App extends Component {
       },
       this.updatePlaylistState
     );
-
-    console.log(this.state.mood);
   }
 
   updateDrinkState() {
     axios
       .get('https://serene-everglades-94130.herokuapp.com/drinks')
       .then(response => {
-        console.log(response.data);
-
         var randomDrink = {
           name: response.data.Drink,
           url: response.data.DrinkThumb,
@@ -50,7 +45,6 @@ class App extends Component {
         this.setState({
           drink: randomDrink
         });
-        // console.log(randomDrink);
       });
   }
   updatePlaylistState() {
@@ -58,8 +52,6 @@ class App extends Component {
     axios
       .get('https://serene-everglades-94130.herokuapp.com/token')
       .then(response => {
-        console.log(response);
-
         const spotify = new SpotifyWrapper({
           token: response.data
         });
@@ -80,9 +72,7 @@ class App extends Component {
         });
       });
   }
-  componentWillMount() {
-    // this.updatePlaylistState();
-  }
+
   buttonClick() {
     if (this.state.buttonAdd) {
       this.setState({ buttonAdd: false });
@@ -92,21 +82,7 @@ class App extends Component {
     }
   }
   renderContent() {
-    //   return (
-    //     <div>
-    //       <Add addMood={this.addMood} button={this.buttonClick} />
-
-    //       <Results
-    //         playlist={this.state.playlists}
-    //         drink={this.state.drink}
-    //         button={this.buttonClick}
-    //         showPlaylist={this.updatePlaylistState}
-    //       />
-    //     </div>
-    //   );
-    // }
     if (this.state.buttonAdd === true) {
-      // console.log(this.state.playlists);
       return (
         <div>
           <Add
