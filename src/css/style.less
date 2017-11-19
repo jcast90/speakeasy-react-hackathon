@@ -254,19 +254,34 @@ img {
   flex-grow: 1;
   width: 100%;
   margin-bottom: 15px;
-  background-color: #000;
+  background-color: #fff;
   transition: all 0.2s ease-in-out;
 }
 .btn-mix {
-  color: #fff;
-  width: 200px;
-}
-
-button:hover {
-  background-color: #fff;
   color: #000;
-  // transform: scale(1.1);
-  box-shadow: 1px 1px 45px #000;
+  width: 200px;
+  font-size: 1.5em;
+}
+.first-timers {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  .close-icon {
+    float: right;
+    cursor: pointer;
+  }
+  span {
+    font-size: 1.2em;
+  }
+}
+.hidden {
+  display: none;
+}
+.btn-mix:hover {
+  background-color: rgb(83, 81, 218);
+  color: #fff !important;
+  transform: scale(1.1);
 }
 .card-title {
   font-size: 2em;
