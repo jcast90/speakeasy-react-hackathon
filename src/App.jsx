@@ -33,7 +33,7 @@ class App extends Component {
 
   updateDrinkState() {
     axios
-      .get('https://serene-everglades-94130.herokuapp.com/drinks')
+      .get('https://speakeasy-hackathon.herokuapp.com/drinks')
       .then(response => {
         var randomDrink = {
           name: response.data.Drink,
@@ -50,7 +50,7 @@ class App extends Component {
   updatePlaylistState() {
     const query = this.state.mood;
     axios
-      .get('https://serene-everglades-94130.herokuapp.com/token')
+      .get('https://speakeasy-hackathon.herokuapp.com/token')
       .then(response => {
         const spotify = new SpotifyWrapper({
           token: response.data
